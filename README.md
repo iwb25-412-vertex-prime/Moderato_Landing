@@ -1,3 +1,5 @@
+![CI](https://github.com/iwb25-412-vertex-prime/Moderato_Landing/actions/workflows/ci.yml/badge.svg)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
