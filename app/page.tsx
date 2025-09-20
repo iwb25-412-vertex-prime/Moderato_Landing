@@ -1,5 +1,7 @@
 import Image from "next/image";
 import PricingSection from "../components/PricingSection";
+import FAQSection from "../components/FAQSection";
+import FinalCTASection from "../components/FinalCTASection";
 
 export default function Home() {
   return (
@@ -105,6 +107,12 @@ export default function Home() {
       
       {/* Pricing Section */}
       <PricingSection />
+      
+      {/* FAQ Section */}
+      <FAQSection />
+      
+      {/* Final Call to Action */}
+      <FinalCTASection />
     </div>
   );
 }
