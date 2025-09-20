@@ -4,6 +4,7 @@ import UseCasesSection from "../components/UseCasesSection";
 import PricingSection from "../components/PricingSection";
 import FAQSection from "../components/FAQSection";
 import FinalCTASection from "../components/FinalCTASection";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -121,6 +122,9 @@ export default function Home() {
       
       {/* Final Call to Action */}
       <FinalCTASection />
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

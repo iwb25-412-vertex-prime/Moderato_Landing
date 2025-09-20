@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface PricingPlan {
   id: string;
@@ -13,52 +13,55 @@ interface PricingPlan {
 
 const pricingPlans: PricingPlan[] = [
   {
-    id: 'free',
-    title: 'Free',
-    description: 'Perfect for individuals and small projects to get started with content moderation',
-    price: '$0',
-    period: '/month',
+    id: "free",
+    title: "Free",
+    description:
+      "Perfect for individuals and small projects to get started with content moderation",
+    price: "$0",
+    period: "/month",
     features: [
-      'Up to 15,000 API requests/month',
-      'Basic moderation rules',
-      'Text content filtering',
-      'Community support',
-      'Standard response time'
+      "Up to 5,000 API requests/month",
+      "Basic moderation rules",
+      "Text content filtering",
+      "Community support",
+      "Standard response time",
     ],
-    buttonText: 'Get Started Free'
+    buttonText: "Get Started Free",
   },
   {
-    id: 'pro',
-    title: 'Pro',
-    description: 'Ideal for startups and growing applications that need advanced moderation capabilities',
-    price: '$9',
-    period: '/month',
+    id: "pro",
+    title: "Pro",
+    description:
+      "Ideal for startups and growing applications that need advanced moderation capabilities",
+    price: "$9",
+    period: "/month",
     features: [
-      'Up to 50,000 API requests/month',
-      'Advanced rule customization',
-      'Text, filtering',
-      'Analytics dashboard',
-      'Priority support',
-      'Custom webhooks'
+      "Up to 50,000 API requests/month",
+      "Advanced rule customization",
+      "Text, filtering",
+      "Analytics dashboard",
+      "Priority support",
+      "Custom webhooks",
     ],
-    buttonText: 'Start Pro Trial',
-    isRecommended: true
+    buttonText: "Start Pro Trial",
+    isRecommended: true,
   },
   {
-    id: 'custom',
-    title: 'Custom',
-    description: 'Enterprise-grade solution for large-scale applications with unlimited capacity',
-    price: 'Custom',
+    id: "custom",
+    title: "Custom",
+    description:
+      "Enterprise-grade solution for large-scale applications with unlimited capacity",
+    price: "Custom",
     features: [
-      'Unlimited API requests',
-      'Dedicated infrastructure',
-      'Custom integrations',
-      'White-label solution',
-      'Enterprise SLA',
-      'Dedicated account manager'
+      "Unlimited API requests",
+      "Dedicated infrastructure",
+      "Custom integrations",
+      "White-label solution",
+      "Enterprise SLA",
+      "Dedicated account manager",
     ],
-    buttonText: 'Contact Sales'
-  }
+    buttonText: "Contact Sales",
+  },
 ];
 
 const PricingSection: React.FC = () => {
@@ -71,7 +74,8 @@ const PricingSection: React.FC = () => {
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose the perfect plan for your content moderation needs. Start free and scale as you grow.
+            Choose the perfect plan for your content moderation needs. Start
+            free and scale as you grow.
           </p>
         </div>
 
@@ -82,8 +86,8 @@ const PricingSection: React.FC = () => {
               key={plan.id}
               className={`relative bg-white rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
                 plan.isRecommended
-                  ? 'border-yellow-400 ring-4 ring-yellow-100'
-                  : 'border-gray-200 hover:border-yellow-300'
+                  ? "border-yellow-400 ring-4 ring-yellow-100"
+                  : "border-gray-200 hover:border-yellow-300"
               }`}
             >
               {/* Recommended Badge */}
@@ -144,8 +148,8 @@ const PricingSection: React.FC = () => {
                 <button
                   className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 ${
                     plan.isRecommended
-                      ? 'bg-yellow-400 text-gray-900 hover:bg-yellow-500 hover:shadow-lg transform hover:scale-105'
-                      : 'bg-gray-900 text-white hover:bg-gray-800 hover:shadow-lg transform hover:scale-105'
+                      ? "bg-yellow-400 text-gray-900 hover:bg-yellow-500 hover:shadow-lg transform hover:scale-105"
+                      : "bg-gray-900 text-white hover:bg-gray-800 hover:shadow-lg transform hover:scale-105"
                   }`}
                 >
                   {plan.buttonText}
@@ -153,16 +157,6 @@ const PricingSection: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <p className="text-gray-600 mb-4">
-            Need help choosing the right plan? Our team is here to help.
-          </p>
-          <button className="bg-white border-2 border-yellow-400 text-gray-900 px-8 py-3 rounded-xl font-semibold hover:bg-yellow-50 transition-colors duration-300">
-            Schedule a Demo
-          </button>
         </div>
       </div>
     </section>

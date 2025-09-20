@@ -22,7 +22,7 @@ const faqData: FAQItem[] = [
   {
     id: 'pricing-limits',
     question: 'What are the API request limits for each plan?',
-    answer: 'Free plan includes 15,000 requests per month, Pro plan offers 50,000 requests per month, and Custom/Enterprise plans provide unlimited requests. All plans reset monthly, and you can upgrade at any time if you need more capacity.'
+    answer: 'Free plan includes 5,000 requests per month, Pro plan offers 50,000 requests per month, and Custom/Enterprise plans provide unlimited requests. All plans reset monthly, and you can upgrade at any time if you need more capacity.'
   },
   {
     id: 'supported-content',
