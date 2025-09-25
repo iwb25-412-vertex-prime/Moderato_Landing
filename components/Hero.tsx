@@ -18,7 +18,7 @@ const CodeWindow: React.FC = () => {
       {/* Code area */}
       <div className="bg-gray-950 text-gray-100 text-[13px] leading-6 p-5 overflow-auto">
         <pre className="font-mono whitespace-pre text-[13px]">
-          <span className="text-[#FF9900]">// Moderate Request</span>{"\n"}
+          <span className="text-[#FF9900]">{/* Moderate Request */}</span>{"\n"}
           {`POST /moderate/
 Headers: X-API-Key: your-strong-secret-key
 Body: {
@@ -26,7 +26,7 @@ Body: {
 }
 
 `}
-          <span className="text-[#FF9900]">// Response</span>{"\n"}
+          <span className="text-[#FF9900]">{/* Response */}</span>{"\n"}
           {`{
   "status": true,
   "result": {
@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
-             We're here to
+             We&apos;re here to
               <br />
               Define your 
               <br />
@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
             </svg>
 
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-xl">
-              Let's make your rules easy to enforce and policies clear using the Moderato API and AI-powered tools for managing content policies.
+              Let&apos;s make your rules easy to enforce and policies clear using the Moderato API and AI-powered tools for managing content policies.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
