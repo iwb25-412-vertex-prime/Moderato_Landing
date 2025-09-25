@@ -85,9 +85,9 @@ const HowItWorksSection: React.FC = () => {
                 </div>
 
                 {/* Icon */}
-                <div className="text-yellow-500 mb-6 flex justify-center">
+                {/* <div className="text-yellow-500 mb-6 flex justify-center">
                   {step.icon}
-                </div>
+                </div> */}
 
                 {/* Content */}
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
