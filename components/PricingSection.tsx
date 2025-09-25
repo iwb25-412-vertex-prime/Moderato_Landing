@@ -66,7 +66,7 @@ const pricingPlans: PricingPlan[] = [
 
 const PricingSection: React.FC = () => {
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-white to-yellow-50">
+    <section id="pricing" className="py-16 px-4 bg-gradient-to-br from-white to-yellow-50">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

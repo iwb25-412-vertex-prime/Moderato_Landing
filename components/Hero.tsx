@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import Modal from "./Modal";
 
 const CodeWindow: React.FC = () => {
   return (
@@ -16,15 +18,16 @@ const CodeWindow: React.FC = () => {
       {/* Code area */}
       <div className="bg-gray-950 text-gray-100 text-[13px] leading-6 p-5 overflow-auto">
         <pre className="font-mono whitespace-pre text-[13px]">
-{`// Moderate Request
-POST /moderate/
+          <span className="text-[#FF9900]">// Moderate Request</span>{"\n"}
+          {`POST /moderate/
 Headers: X-API-Key: your-strong-secret-key
 Body: {
   "text_to_moderate": "This is some text to check"
 }
 
-// Response
-{
+`}
+          <span className="text-[#FF9900]">// Response</span>{"\n"}
+          {`{
   "status": true,
   "result": {
     "flagged": false,
@@ -41,8 +44,11 @@ Body: {
 };
 
 const Hero: React.FC = () => {
+  const [openVideo, setOpenVideo] = useState(false);
+  const [openSoon, setOpenSoon] = useState(false);
+
   return (
-    <section className="relative overflow-hidden">
+    <section id="home" className="relative overflow-hidden">
       {/* soft background gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-yellow-50 via-white to-orange-50" />
 
@@ -88,10 +94,10 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-yellow-500 transition-all duration-300 hover:shadow-lg">
+              <button onClick={() => setOpenSoon(true)} className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-yellow-500 transition-all duration-300 hover:shadow-lg">
                 Try free trial
               </button>
-              <button className="bg-white border-2 border-yellow-400 text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-yellow-50 transition-colors duration-300 inline-flex items-center gap-2">
+              <button onClick={() => setOpenVideo(true)} className="bg-white border-2 border-yellow-400 text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-yellow-50 transition-colors duration-300 inline-flex items-center gap-2">
                 <span className="inline-flex w-5 h-5 rounded-full bg-yellow-400 text-gray-900 items-center justify-center">
                   <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M8 5v14l11-7L8 5z" />
@@ -108,6 +114,30 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+      {/* Video Modal */}
+      <Modal open={openVideo} onClose={() => setOpenVideo(false)} title="Product Demo" maxWidthClassName="max-w-5xl">
+        <div className="aspect-video w-full bg-black">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/if3RSk4qULw?si=-HZR1iYAgfCa0WpT&autoplay=1"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+      </Modal>
+
+      {/* Coming Soon Modal */}
+      <Modal open={openSoon} onClose={() => setOpenSoon(false)} title="Coming Soon" maxWidthClassName="max-w-md">
+        <div className="p-6">
+          <p className="text-gray-700 mb-4">We are moving to production soon. Stay tuned!</p>
+          <div className="flex justify-end">
+            <button onClick={() => setOpenSoon(false)} className="px-4 py-2 rounded-lg bg-yellow-400 text-gray-900 font-semibold hover:bg-yellow-500">OK</button>
+          </div>
+        </div>
+      </Modal>
+
     </section>
   );
 };

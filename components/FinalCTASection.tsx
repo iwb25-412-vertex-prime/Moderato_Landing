@@ -2,7 +2,7 @@ import React from 'react';
 
 const FinalCTASection: React.FC = () => {
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-white to-yellow-50">
+    <section id="final-cta" className="py-16 px-4 bg-gradient-to-br from-white to-yellow-50">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
           Ready to get started?

@@ -53,7 +53,7 @@ const steps: Step[] = [
 
 const HowItWorksSection: React.FC = () => {
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white">
+    <section id="how-it-works" className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -102,7 +102,7 @@ const HowItWorksSection: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <p className="text-gray-600 mb-6">
             Ready to get started? It takes less than 5 minutes to set up.
           </p>
@@ -114,7 +114,7 @@ const HowItWorksSection: React.FC = () => {
               View Documentation
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

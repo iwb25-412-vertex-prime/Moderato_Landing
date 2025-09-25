@@ -74,7 +74,7 @@ const useCases: UseCase[] = [
 
 const UseCasesSection: React.FC = () => {
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-yellow-50 to-orange-50">
+    <section id="use-cases" className="py-16 px-4 bg-gradient-to-br from-yellow-50 to-orange-50">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -159,7 +159,7 @@ const UseCasesSection: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Ready to Protect Your Platform?
           </h3>
@@ -174,7 +174,7 @@ const UseCasesSection: React.FC = () => {
               Schedule Demo
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

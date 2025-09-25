@@ -65,7 +65,7 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-white">
+    <section id="faq" className="py-16 px-4 bg-white">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -129,7 +129,7 @@ const FAQSection: React.FC = () => {
         </div>
 
         {/* Additional Help */}
-        <div className="text-center mt-12 p-8 bg-gradient-to-r from-yellow-50 to-white rounded-xl border-2 border-yellow-200">
+        {/* <div className="text-center mt-12 p-8 bg-gradient-to-r from-yellow-50 to-white rounded-xl border-2 border-yellow-200">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Still have questions?
           </h3>
@@ -144,7 +144,7 @@ const FAQSection: React.FC = () => {
               View Documentation
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
