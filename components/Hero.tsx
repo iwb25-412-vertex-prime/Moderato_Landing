@@ -45,7 +45,61 @@ Body: {
 
 const Hero: React.FC = () => {
   const [openVideo, setOpenVideo] = useState(false);
-  const [openSoon, setOpenSoon] = useState(false);
+  const [openEmailModal, setOpenEmailModal] = useState(false);
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [feedback, setFeedback] = useState<string | null>(null);
+
+  // Function to handle email submission
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setFeedback(null);
+    try {
+      const requestBody = { data: [{ email_Addresses: email }] };
+      console.log("Sending request to SheetDB with body:", requestBody);
+      
+      const res = await fetch("https://sheetdb.io/api/v1/8d73ghsqvy7al", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+      
+      console.log("Response status:", res.status);
+      console.log("Response headers:", Object.fromEntries(res.headers.entries()));
+      
+      let responseData;
+      const responseText = await res.text();
+      console.log("Raw response text:", responseText);
+      
+      try {
+        responseData = JSON.parse(responseText);
+      } catch (parseErr) {
+        console.error("Failed to parse response as JSON:", parseErr);
+        console.log("Response as text:", responseText);
+        setFeedback("Server response format error. Please try again.");
+        setLoading(false);
+        return;
+      }
+      
+      console.log("Parsed response data:", responseData);
+      
+      if (res.ok && res.status === 201) {
+        setFeedback("Email saved! Thank you.");
+        setEmail("");
+      } else {
+        console.error("SheetDB Error - Status:", res.status, "Data:", responseData);
+        setFeedback(`Failed to save email (Status: ${res.status}). Please try again.`);
+      }
+    } catch (err) {
+      console.error("Request Error:", err);
+      setFeedback("Network error occurred. Please check your connection and try again.");
+    }
+    setLoading(false);
+  };
 
   return (
     <section id="home" className="relative overflow-hidden">
@@ -94,7 +148,7 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button onClick={() => setOpenSoon(true)} className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-yellow-500 transition-all duration-300 hover:shadow-lg">
+              <button onClick={() => setOpenEmailModal(true)} className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-yellow-500 transition-all duration-300 hover:shadow-lg">
                 Try free trial
               </button>
               <button onClick={() => setOpenVideo(true)} className="bg-white border-2 border-yellow-400 text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-yellow-50 transition-colors duration-300 inline-flex items-center gap-2">
@@ -128,14 +182,28 @@ const Hero: React.FC = () => {
         </div>
       </Modal>
 
-      {/* Coming Soon Modal */}
-      <Modal open={openSoon} onClose={() => setOpenSoon(false)} title="Coming Soon" maxWidthClassName="max-w-md">
-        <div className="p-6">
-          <p className="text-gray-700 mb-4">We are moving to production soon. Stay tuned!</p>
-          <div className="flex justify-end">
-            <button onClick={() => setOpenSoon(false)} className="px-4 py-2 rounded-lg bg-yellow-400 text-gray-900 font-semibold hover:bg-yellow-500">OK</button>
+      {/* Email Modal */}
+      <Modal open={openEmailModal} onClose={() => { setOpenEmailModal(false); setFeedback(null); }} title="Enter your email address" maxWidthClassName="max-w-md">
+        <form className="p-6" onSubmit={handleEmailSubmit}>
+          <label htmlFor="email" className="block text-gray-700 mb-2 font-semibold">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+            className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-4"
+            placeholder="your@email.com"
+            disabled={loading}
+          />
+          {feedback && <div className={`mb-4 text-sm ${feedback.includes('saved') ? 'text-green-600' : 'text-red-600'}`}>{feedback}</div>}
+          <div className="flex justify-end gap-2">
+            <button type="button" onClick={() => { setOpenEmailModal(false); setFeedback(null); }} className="px-4 py-2 rounded-lg bg-gray-200 text-gray-900 font-semibold hover:bg-gray-300">Cancel</button>
+            <button type="submit" disabled={loading || !email} className="px-4 py-2 rounded-lg bg-yellow-400 text-gray-900 font-semibold hover:bg-yellow-500 disabled:opacity-50">
+              {loading ? "Saving..." : "Submit"}
+            </button>
           </div>
-        </div>
+        </form>
       </Modal>
 
     </section>
