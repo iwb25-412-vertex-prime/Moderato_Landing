@@ -144,16 +144,16 @@ const UseCasesSection: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-orange-400/10" />
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="group">
-              <div className="text-3xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">1+</div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">-</div>
               <div className="text-gray-600 font-medium">Active Platforms</div>
             </div>
             <div className="group">
-              <div className="text-5xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">1000+</div>
+              <div className="text-5xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100+</div>
               <div className="text-gray-600 font-medium">Checked Cases</div>
             </div>
             <div className="group">
               <div className="text-5xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">99.9%</div>
-              <div className="text-gray-600 font-medium">Checking</div>
+              <div className="text-gray-600 font-medium">Pass</div>
             </div>
           </div>
         </div>
